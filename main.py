@@ -227,11 +227,13 @@ def train():
         if val_loss < best_loss:
             best_loss = val_loss
             es = earlystop
+            print("Best model saved")
             torch.save(model.state_dict(), modelpath)
         else: 
+            print("Not Best, earlystopping in:", earlystop, "step(s)")
             es -= 1
         if es == 0: 
-            # model.load_state_dict(torch.load(modelpath))
+            # model.load_state_dict(torch.load(model_save_name))
             print("Early Stopped and saved model")
             break
 
