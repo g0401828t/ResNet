@@ -230,7 +230,7 @@ def train():
             print("Best model saved")
             torch.save(model.state_dict(), modelpath)
         else: 
-            print("Not Best, earlystopping in:", earlystop, "step(s)")
+            print("Not Best, earlystopping in:", es, "step(s)")
             es -= 1
         if es == 0: 
             # model.load_state_dict(torch.load(model_save_name))
